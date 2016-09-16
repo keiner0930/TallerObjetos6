@@ -22,6 +22,12 @@ public class Principal6 extends javax.swing.JFrame {
 
     public Principal6() {
         initComponents();
+        cmdGuardar.setEnabled(true);
+        cmdServir.setEnabled(false);
+        cmdCafe.setEnabled(false);
+        cmdLlenar.setEnabled(false);
+        cmdVaciar.setEnabled(false);
+        cmdBorrar.setEnabled(true);
     }
 
     /**
@@ -49,6 +55,7 @@ public class Principal6 extends javax.swing.JFrame {
         txtAgregar = new javax.swing.JTextField();
         cmdCafe = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        cmdBorrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,18 +63,36 @@ public class Principal6 extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 3, 24)); // NOI18N
         jLabel1.setText("Cafetera");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 100, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 100, -1));
 
         jLabel2.setText("Capacidad Maxima:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
+
+        txtCmaxima.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCmaximaKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtCmaxima, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 90, 70, 30));
 
         jLabel3.setText("Cantidad Actual:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, -1, -1));
+
+        txtCactual.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCactualKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtCactual, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 70, 30));
 
         jLabel4.setText("No de Tazas");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+
+        txtTazas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTazasKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtTazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 70, 30));
 
         cmdServir.setText("Servir Cafe");
@@ -87,7 +112,7 @@ public class Principal6 extends javax.swing.JFrame {
                 cmdLlenarActionPerformed(evt);
             }
         });
-        jPanel2.add(cmdLlenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 110, -1));
+        jPanel2.add(cmdLlenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 130, -1));
 
         cmdVaciar.setText("Vaciar Cafetera");
         cmdVaciar.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +120,7 @@ public class Principal6 extends javax.swing.JFrame {
                 cmdVaciarActionPerformed(evt);
             }
         });
-        jPanel2.add(cmdVaciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 110, -1));
+        jPanel2.add(cmdVaciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 130, -1));
 
         cmdGuardar.setText("Guardar");
         cmdGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -103,9 +128,15 @@ public class Principal6 extends javax.swing.JFrame {
                 cmdGuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(cmdGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 110, -1));
+        jPanel2.add(cmdGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 130, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 130, 120));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 150, 130));
+
+        txtAgregar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAgregarKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 70, 30));
 
         cmdCafe.setText("Agregar Cafe");
@@ -119,36 +150,82 @@ public class Principal6 extends javax.swing.JFrame {
         jLabel5.setText("Cafe");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, -1));
 
+        cmdBorrar.setText("Borrar");
+        cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdVaciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdVaciarActionPerformed
+        int aux;;
+        String res;
+
         c.vaciar();
+
+        cmdGuardar.setEnabled(false);
+        cmdServir.setEnabled(true);
+        cmdCafe.setEnabled(true);
+        cmdLlenar.setEnabled(true);
+        cmdVaciar.setEnabled(true);
+        cmdBorrar.setEnabled(true);
+        txtCmaxima.setEditable(false);
+        txtCactual.setEditable(false);
+
+        aux = c.getCantidad_actual();
+        res = String.valueOf(aux);
+        txtCactual.setText(res);
     }//GEN-LAST:event_cmdVaciarActionPerformed
 
     private void cmdServirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdServirActionPerformed
-        int tazas;
+        int tazas, aux;
+        String res;
         if (txtTazas.getText().isEmpty()) {
             getToolkit().beep();
             JOptionPane.showMessageDialog(this, "Digite El Numero de Tazas", "Error", JOptionPane.ERROR_MESSAGE);
             txtTazas.requestFocusInWindow();
         } else {
+            aux = c.getCantidad_actual();
+            if (aux == 0) {
+                getToolkit().beep();
+                JOptionPane.showMessageDialog(this, "No se pueden servir tazas\nPorque la Cafetera esta Vacia", "Error", JOptionPane.ERROR_MESSAGE);
+                txtTazas.selectAll();;
+                txtTazas.requestFocusInWindow();
+            } else {
+                tazas = Integer.parseInt((txtTazas).getText());
 
-            tazas = Integer.parseInt((txtTazas).getText());
+                c.servir(tazas);
+                txtTazas.setText("");
 
-            c.servir(tazas);
-            txtTazas.setText("");
+                cmdGuardar.setEnabled(false);
+                cmdServir.setEnabled(true);
+                cmdCafe.setEnabled(true);
+                cmdLlenar.setEnabled(true);
+                cmdVaciar.setEnabled(true);
+                cmdBorrar.setEnabled(true);
+                txtCmaxima.setEditable(false);
+                txtCactual.setEditable(false);
+
+                aux = c.getCantidad_actual();
+                res = String.valueOf(aux);
+                txtCactual.setText(res);
+            }
         }
     }//GEN-LAST:event_cmdServirActionPerformed
 
@@ -163,35 +240,138 @@ public class Principal6 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Digite La Cantidad Actual", "Error", JOptionPane.ERROR_MESSAGE);
             txtCactual.requestFocusInWindow();
         } else {
-
             capacidamaxima = Integer.parseInt(txtCmaxima.getText());
             cantidadactual = Integer.parseInt(txtCactual.getText());
+            if (cantidadactual > capacidamaxima) {
+                getToolkit().beep();
+                JOptionPane.showMessageDialog(this, "La Cantidad Actual no puede ser mayor que la Capacidad Maxima", "Error", JOptionPane.ERROR_MESSAGE);
+                txtCactual.requestFocusInWindow();
+            } else {
 
-            c = new Cafetera(capacidamaxima, cantidadactual);
-            JOptionPane.showMessageDialog(this, "Datos guardados exitosamente");
+                c = new Cafetera(capacidamaxima, cantidadactual);
+                JOptionPane.showMessageDialog(this, "Datos guardados exitosamente");
+
+                cmdGuardar.setEnabled(false);
+                cmdServir.setEnabled(true);
+                cmdCafe.setEnabled(true);
+                cmdLlenar.setEnabled(true);
+                cmdVaciar.setEnabled(true);
+                cmdBorrar.setEnabled(true);
+                txtCmaxima.setEditable(false);
+                txtCactual.setEditable(false);
+            }
         }
 
     }//GEN-LAST:event_cmdGuardarActionPerformed
 
     private void cmdCafeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCafeActionPerformed
-        int nuevocafe;
+        int nuevocafe, aux, capmax, canact;
+        String res;
+
         if (txtAgregar.getText().isEmpty()) {
             getToolkit().beep();
             JOptionPane.showMessageDialog(this, "Digite la Cantidad a Agregar", "Error", JOptionPane.ERROR_MESSAGE);
             txtAgregar.requestFocusInWindow();
         } else {
+            capmax = Integer.parseInt((txtCmaxima).getText());
             nuevocafe = Integer.parseInt(txtAgregar.getText());
+            canact = c.getCantidad_actual();
 
-            c.agregar(nuevocafe);
-            txtAgregar.setText("");
+            if (nuevocafe + canact >= capmax + 1) {
+                getToolkit().beep();
+                JOptionPane.showMessageDialog(this, "No se puede agregar esta cantidad de Cafe\nPorque sobrepasa la Capacidad Maxima", "Error", JOptionPane.ERROR_MESSAGE);
+                txtAgregar.selectAll();
+                txtAgregar.requestFocusInWindow();
+            } else {
+
+                c.agregar(nuevocafe);
+                txtAgregar.setText("");
+
+                cmdGuardar.setEnabled(false);
+                cmdServir.setEnabled(true);
+                cmdCafe.setEnabled(true);
+                cmdLlenar.setEnabled(true);
+                cmdVaciar.setEnabled(true);
+                cmdBorrar.setEnabled(true);
+                txtCmaxima.setEditable(false);
+                txtCactual.setEditable(false);
+
+                aux = c.getCantidad_actual();
+                res = String.valueOf(aux);
+                txtCactual.setText(res);
+            }
         }
     }//GEN-LAST:event_cmdCafeActionPerformed
 
     private void cmdLlenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenarActionPerformed
+        int aux;;
+        String res;
 
         c.llenar();
 
+        cmdGuardar.setEnabled(false);
+        cmdServir.setEnabled(true);
+        cmdCafe.setEnabled(true);
+        cmdLlenar.setEnabled(true);
+        cmdVaciar.setEnabled(true);
+        cmdBorrar.setEnabled(true);
+        txtCmaxima.setEditable(false);
+        txtCactual.setEditable(false);
+
+        aux = c.getCantidad_actual();
+        res = String.valueOf(aux);
+        txtCactual.setText(res);
+
     }//GEN-LAST:event_cmdLlenarActionPerformed
+
+    private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
+        txtCmaxima.setText("");
+        txtCactual.setText("");
+        txtAgregar.setText("");
+        txtTazas.setText("");
+        txtCmaxima.requestFocusInWindow();
+
+        cmdGuardar.setEnabled(true);
+        cmdServir.setEnabled(false);
+        cmdCafe.setEnabled(false);
+        cmdLlenar.setEnabled(false);
+        cmdVaciar.setEnabled(false);
+        cmdBorrar.setEnabled(true);
+        txtCmaxima.setEditable(true);
+        txtCactual.setEditable(true);
+    }//GEN-LAST:event_cmdBorrarActionPerformed
+
+    private void txtCmaximaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCmaximaKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCmaximaKeyTyped
+
+    private void txtCactualKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCactualKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCactualKeyTyped
+
+    private void txtTazasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTazasKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtTazasKeyTyped
+
+    private void txtAgregarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAgregarKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtAgregarKeyTyped
 
     /**
      * @param args the command line arguments
@@ -229,6 +409,7 @@ public class Principal6 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cmdBorrar;
     private javax.swing.JButton cmdCafe;
     private javax.swing.JButton cmdGuardar;
     private javax.swing.JButton cmdLlenar;

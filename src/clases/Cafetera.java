@@ -41,8 +41,8 @@ private int cantidad_actual;
 
 public void llenar(){
 int aux;
-aux= this.capacidad_maxima = this.cantidad_actual;
-this.setCapacidad_maxima(aux);
+aux= this.cantidad_actual = this.capacidad_maxima;
+this.setCantidad_actual(aux);
 
 }
 
